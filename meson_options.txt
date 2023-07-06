@@ -1,0 +1,67 @@
+# Applications
+option('gtk-frontend', type: 'boolean',
+  description: 'Main graphical interface'
+)
+option('text-frontend', type: 'boolean', value: false,
+  description: 'Text interface (not generally useful)'
+)
+option('theme-manager', type: 'boolean', value: false,
+  description: 'Utility to help manage themes, requires mono/.net'
+)
+
+# Features
+option('tls', type: 'feature', value: 'enabled',
+  description: 'Support for TLS connections, requires openssl'
+)
+option('plugin', type: 'boolean',
+  description: 'Support for loadable plugins'
+)
+option('dbus', type: 'feature', value: 'auto',
+  description: 'Support used for single-instance and scripting interface, Unix only'
+)
+option('libcanberra', type: 'feature', value: 'auto',
+  description: 'Support for sound alerts, Unix only'
+)
+
+# Install options
+option('dbus-service-use-appid', type: 'boolean', value: false,
+  description: 'Rename dbus service to match app-id, required for Flatpak'
+)
+option('install-appdata', type: 'boolean',
+  description: 'Install appdata files for app stores'
+)
+option('install-plugin-metainfo', type: 'boolean', value: false,
+  description: 'Installs metainfo files for enabled plugins, useful when distros create split packages'
+)
+
+# Plugins
+option('with-checksum', type: 'boolean',
+  description: 'DCC checksum plugin'
+)
+option('with-exec', type: 'boolean',
+  description: '/exec plugin, Windows only'
+)
+option('with-fishlim', type: 'boolean',
+  description: 'Fish encryption plugin, requires openssl'
+)
+option('with-lua', type: 'string', value: 'luajit',
+  description: 'Lua scripting plugin, value is pkg-config name to use or "false"'
+)
+option('with-perl', type: 'string', value: 'perl',
+  description: 'Perl scripting plugin, value is path to perl executable or "false"'
+)
+option('with-python', type: 'string', value: 'python3',
+  description: 'Python scripting plugin. value is pkg-config name to use or "false"'
+)
+option('with-sysinfo', type: 'boolean',
+  description: 'System information plugin, requires libpci on Unix'
+)
+option('with-upd', type: 'boolean',
+  description: 'Update plugin, Windows only'
+)
+option('with-winamp', type: 'boolean',
+  description: 'Winamp plugin, Windows only'
+)
+option('with-perl-legacy-api', type: 'boolean', value: false,
+  description: 'Enables the legacy IRC perl module for compatibility with old scripts'
+)

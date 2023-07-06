@@ -1,0 +1,6 @@
+usr/lib/*/hexchat/plugins/checksum.so
+usr/lib/*/hexchat/plugins/fishlim.so
+usr/lib/*/hexchat/plugins/sysinfo.so
+usr/share/metainfo/io.github.Hexchat.Plugin.Checksum.metainfo.xml
+usr/share/metainfo/io.github.Hexchat.Plugin.Fishlim.metainfo.xml
+usr/share/metainfo/io.github.Hexchat.Plugin.Sysinfo.metainfo.xml

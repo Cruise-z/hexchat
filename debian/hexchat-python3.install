@@ -1,0 +1,3 @@
+usr/lib/*/hexchat/plugins/python.so
+usr/lib/*/hexchat/python/*
+usr/share/metainfo/io.github.Hexchat.Plugin.Python.metainfo.xml
