@@ -1,15 +1,131 @@
-Source: template-repository
-Section: unknown
+Source: hexchat
+Section: net
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Maintainer: Cruise.zrz <Cruise.zrz@gmail.com>
+Build-Depends: debhelper-compat (= 13),
+ gettext,
+ iso-codes,
+ libcanberra-dev,
+ libdbus-glib-1-dev,
+ libglib2.0-dev,
+ libgtk2.0-dev,
+ liblua5.3-dev,
+ libpci-dev,
+ libperl-dev,
+ libssl-dev,
+ meson,
+ python3-cffi,
+ python3-dev (>= 3.3),
+Standards-Version: 4.6.0
+Homepage: <insert the upstream URL, if relevant>
+#Vcs-Browser: https://salsa.debian.org/debian/hexchat
+#Vcs-Git: https://salsa.debian.org/debian/hexchat.git
+Rules-Requires-Root: no
 
-Package: template-repository
+Package: hexchat
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Provides:
+ irc,
+Depends:
+ hexchat-common (= ${source:Version}),
+ ${misc:Depends},
+ ${shlibs:Depends},
+Recommends:
+ ca-certificates,
+ hexchat-lua,
+ hexchat-perl,
+ hexchat-plugins,
+ hexchat-python3,
+ libglib2.0-bin,
+Suggests:
+ hexchat-otr,
+ unifont,
+Description: IRC client for X based on X-Chat 2
+ HexChat is a graphical IRC client with a GTK+ GUI. Features include Python,
+ Perl and Lua scripting support, a plugin API, multiple server/channel
+ windows, spell checking, multiple authentication methods including SASL, and
+ customizable notifications. For more information on IRC, see
+ http://irchelp.org/.
+
+Package: hexchat-common
+Architecture: all
+Multi-Arch: foreign
+Provides:
+ irc,
+Depends:
+ ${misc:Depends},
+Recommends:
+ hexchat,
+Description: Common files for HexChat
+ This package includes documentation, headers, and locale files for the
+ Debian HexChat packages that are common for all architectures. Hexchat is a
+ popular and featureful IRC client with a GTK+ GUI. For more information on
+ IRC, see http://irchelp.org/.
+
+Package: hexchat-perl
+Architecture: any
+Multi-Arch: same
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
+Recommends:
+ hexchat,
+Description: Perl plugin for HexChat
+ This package contains the perl plugin for HexChat. Previously included in the
+ main HexChat package, it's now separate as it's not actually required for core
+ functionality.
+
+Package: hexchat-python3
+Architecture: any
+Multi-Arch: same
+Depends:
+ python3-cffi-backend,
+ ${misc:Depends},
+ ${shlibs:Depends},
+Recommends:
+ hexchat,
+Description: Python 3 plugin for HexChat
+ This package contains the Python 3 plugin for HexChat. Previously included in
+ the main HexChat package, it's now separate as it's not actually required for
+ core functionality.
+
+Package: hexchat-lua
+Architecture: any
+Multi-Arch: same
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
+Recommends:
+ hexchat,
+Description: Lua plugin for HexChat
+ This package contains the Lua plugin for Hexchat.
+ Previously included in the main HexChat package, it's now separate as it's not
+ actually required for core functionality.
+
+Package: hexchat-plugins
+Architecture: any
+Multi-Arch: same
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
+Recommends:
+ hexchat,
+ pci.ids,
+Description: Common plugins for HexChat
+ This package contains the FiSHLiM, Sysinfo, Do At and Checksum plugins.
+ Previously included in the main HexChat package, they're now separate as
+ they're not actually required for core functionality.
+
+Package: hexchat-dev
+Architecture: any
+Multi-Arch: same
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
+Recommends:
+ hexchat,
+Description: Development files for HexChat
+ This package contains the hexchat-plugin.h and hexchat-plugin.pc
+ files, which facilitate building binary plugins. Hexchat is a
+ popular and featureful IRC client with a GTK+ GUI. For more information on
+ IRC, see http://irchelp.org/.
